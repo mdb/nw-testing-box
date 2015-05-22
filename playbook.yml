@@ -18,7 +18,6 @@
       with_items:
         - dbus-x11
         - default-jre
-        - firefox
         - git
         - google-chrome-stable
         - libnotify4
@@ -28,16 +27,6 @@
         - xvfb
 
   tasks:
-    - name: create /usr/lib/selenium
-      file:
-        dest: /usr/lib/selenium
-        state: directory
-
-    - name: download selenium-server-standalone jar
-      get_url:
-        url: http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-        dest: /usr/lib/selenium
-
     - name: download nw chromedriver
       get_url:
         url: http://dl.nwjs.io/v0.13.0/alpha0/chromedriver-nw-v0.13.0-alpha0-linux-x64.tar.gz
@@ -52,26 +41,14 @@
     - name: move chromedriver executable to /usr/local/bin/
       shell: mv /tmp/chromedriver-nw-v0.13.0-alpha0-linux-x64/chromedriver /usr/local/bin/chromedriver
 
-    - name: symlink /usr/lib/selenium/selenium-server-standalone-2.44.0.jar to /usr/lib/selenium/selenium-server-standalone.jar
-      file:
-        src: /usr/lib/selenium/selenium-server-standalone-2.44.0.jar
-        dest: /usr/lib/selenium/selenium-server-standalone.jar
-        state: link
-
     - name: symlink /usr/bin/nodejs to /usr/bin/node
       file:
         src: /usr/bin/nodejs
         dest: /usr/bin/node
         state: link
 
-    - name: install bower
-      command: npm install -g bower
-
     - name: install gulp
       command: npm install -g gulp
-
-    - name: install web-component-tester
-      command: npm install -g web-component-tester
 
     - name: copy xvfb init script to /etc/init.d
       template:
