@@ -3,6 +3,13 @@
 A ready-to-go headless Ubuntu box for running NW.js unit and end-to-end
 tests via Xvfb.
 
+## Technologies
+
+* NW.js
+* Karma, Protractor, Jasmine
+* Gulp
+* Xvfb
+
 ## Getting started
 
 Install [Vagrant](https://www.vagrantup.com) & [ansible](http://www.ansible.com).
