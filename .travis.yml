@@ -1,6 +1,6 @@
 language:
   - objective-c
 install:
-  - brew cask install virtualbox
-  - brew cask install vagrant
+  - brew install virtualbox
+  - brew install vagrant
 script: vagrant up
