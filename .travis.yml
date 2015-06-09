@@ -1,18 +1,7 @@
-language: ruby
-rvm:
-  - "1.9.3"
+language:
+  - objective-c
 install:
-  - sudo echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" | sudo tee -a /etc/apt/sources.list
-  - wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-  - sudo apt-get update
-  - sudo apt-get -y install linux-headers-generic
-  - sudo apt-get -y install virtualbox-4.3
-  - VBoxManage -v
-  - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
-  - sudo dpkg -i vagrant_1.7.2_x86_64.deb
-script:
-  - /opt/vagrant/bin/vagrant up
-  - ls
-  - /opt/vagrant/bin/vagrant ssh
-  - cd /vagrant
-  - ls
+  - brew install caskroom/cask/brew-cask
+  - brew cask install virtualbox
+  - brew cask install vagrant
+script: vagrant up
